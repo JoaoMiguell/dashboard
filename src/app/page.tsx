@@ -44,13 +44,11 @@ export default function Home() {
 		setHorarios(temp);
 	};
 
-	const toDate = (data: string, hora: string): Date => {
+	const toDate = (data: string, horaStr: string): Date => {
 		const [dia, mes, ano] = data.split("/").map((item) => parseInt(item, 10));
-		const [horaStr, minutoStr] = hora
-			.split(":")
-			.map((item) => parseInt(item, 10));
+		const [hora, minuto] = horaStr.split(":").map((item) => parseInt(item, 10));
 
-		return new Date(ano, mes, dia, horaStr, minutoStr);
+		return new Date(ano, mes, dia, hora, minuto);
 	};
 
 	const handleModal = (idx: number) => {
